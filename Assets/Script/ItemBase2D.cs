@@ -1,18 +1,28 @@
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
-using UnityEngine.UI;
 
 public abstract class ItemBase2D : MonoBehaviour
 {
     CursorPractice2 _cursorPractice2;
-    public abstract void Activate();
-
+    /// <summary>
+    /// Animation‚Ì‹““®Žw’è
+    /// </summary>
+    [SerializeField] GameObject _animeGameObject;
+    public Animator _animator;
+    public string animationName="null";
+    public virtual void Activate()
+    {
+        _animator.SetBool(animationName, true);
+    }
+    public void Awake()
+    {
+        _animeGameObject = GameObject.Find("AnimationSquare");
+        _animator = _animeGameObject.GetComponent<Animator>();
+    }
     private void Start()
     {
         _cursorPractice2 = FindAnyObjectByType<CursorPractice2>();
-    }
 
+    }
     public void PushButton()
     {
         _cursorPractice2.GetItem(this);

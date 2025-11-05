@@ -1,35 +1,39 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class CursorPractice2 : MonoBehaviour
 {
     /// <summary>
-    /// ƒJ[ƒ\ƒ‹‚ğì‚é‚½‚ß‚Ì”z—ñ
+    /// ã‚«ãƒ¼ã‚½ãƒ«ã‚’ä½œã‚‹ãŸã‚ã®é…åˆ—
     /// </summary>
     [SerializeField] GameObject[] array;
     /// <summary>
-    /// ƒJ[ƒ\ƒ‹‚ª¡‚Ç‚±‚ÌˆÊ’u‚É‚¢‚é‚©
+    /// ã‚«ãƒ¼ã‚½ãƒ«ãŒä»Šã©ã“ã®ä½ç½®ã«ã„ã‚‹ã‹
     /// </summary>
     int currentIndex;
     /// <summary>
-    /// æ‚Á‚½ƒAƒCƒeƒ€‚ğ“ü‚ê‚Ä‚¨‚­‚½‚ß‚ÌList
+    /// å–ã£ãŸã‚¢ã‚¤ãƒ†ãƒ ã‚’å…¥ã‚Œã¦ãŠããŸã‚ã®List
     /// </summary>
     public List<(ItemBase2D itemName, int itemNumber)> _itemList = new List<(ItemBase2D itemName, int itemNumber)>();
     /// <summary>
-    /// ƒAƒCƒeƒ€–¼‚ğ•\¦‚·‚é‚½‚ß‚Ì”z—ñ
+    /// ã‚¢ã‚¤ãƒ†ãƒ åã‚’è¡¨ç¤ºã™ã‚‹ãŸã‚ã®é…åˆ—
     /// </summary>
     [SerializeField] Text[] texts;
-
+    ItemBase2D _itemBase2D;
     void Start()
     {
         currentIndex = 0;
         array[currentIndex].GetComponent<SpriteRenderer>().color = Color.red;
-
+        _itemBase2D=FindAnyObjectByType<ItemBase2D>();
     }
 
     void Update()
     {
+        if(!Input.anyKey)
+        {
+            _itemBase2D._animator.SetBool(_itemBase2D.animationName, false);
+        }
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             DownCursor(currentIndex);
@@ -40,28 +44,28 @@ public class CursorPractice2 : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            if (_itemList.Count > 0)
+            if (currentIndex >= 0 && currentIndex < _itemList.Count)
             {
                 var data = _itemList[currentIndex];
 
-                // g‚¤ˆ—‚ğæ‚ÉÀsiƒAƒCƒeƒ€‚ÌŒø‰Êj
+                // ä½¿ã†å‡¦ç†ã‚’å…ˆã«å®Ÿè¡Œï¼ˆã‚¢ã‚¤ãƒ†ãƒ ã®åŠ¹æœï¼‰
                 data.itemName.Activate();
-
-                // ƒAƒCƒeƒ€‚ÌŒÂ”‚ğ1Œ¸‚ç‚·
-                //data‚Ì•û‚¾‚¯•Ï‚¦‚Ä‚à‰½‚à‹N‚«‚È‚¢II(ƒRƒs[ì‚é¨‚»‚Ì’l‚ğ•ÏX¨ŠÛ‚²‚Æ’u‚«Š·‚¦)
+                // ã‚¢ã‚¤ãƒ†ãƒ ã®å€‹æ•°ã‚’1æ¸›ã‚‰ã™
+                //dataã®æ–¹ã ã‘å¤‰ãˆã¦ã‚‚ä½•ã‚‚èµ·ããªã„ï¼ï¼(ã‚³ãƒ”ãƒ¼ä½œã‚‹â†’ãã®å€¤ã‚’å¤‰æ›´â†’ä¸¸ã”ã¨ç½®ãæ›ãˆ)
                 int newCount = data.itemNumber - 1;
 
                 if (newCount <= 0)
                 {
-                    // c‚è0‚È‚çƒŠƒXƒg‚©‚çíœ
+                    // æ®‹ã‚Š0ãªã‚‰ãƒªã‚¹ãƒˆã‹ã‚‰å‰Šé™¤
                     _itemList.RemoveAt(currentIndex);
                 }
                 else
                 {
-                    // ‚Ü‚¾c‚Á‚Ä‚¢‚é‚È‚çXV
+                    // ã¾ã æ®‹ã£ã¦ã„ã‚‹ãªã‚‰æ›´æ–°
                     _itemList[currentIndex] = (data.itemName, newCount);
                 }
                 UpdateUI();
+               
             }
         }
     }
@@ -79,10 +83,10 @@ public class CursorPractice2 : MonoBehaviour
         {
             NowIndex = 0;
             array[array.Length - 1].GetComponent<SpriteRenderer>().color = Color.white;
-            //‚±‚±‚ğAnimation‚Å“_–Å‚³‚¹‚é‚È‚Ç‚·‚ê‚ÎA‚³‚ç‚ÉƒJ[ƒ\ƒ‹‚Á‚Û‚­‚È‚é‚Ì‚Å‚ÍH
+            //ã“ã“ã‚’Animationã§ç‚¹æ»…ã•ã›ã‚‹ãªã©ã™ã‚Œã°ã€ã•ã‚‰ã«ã‚«ãƒ¼ã‚½ãƒ«ã£ã½ããªã‚‹ã®ã§ã¯ï¼Ÿ
             array[NowIndex].GetComponent<SpriteRenderer>().color = Color.red;
         }
-        //XV–Y‚ê‚¸‚É
+        //æ›´æ–°å¿˜ã‚Œãšã«
         currentIndex = NowIndex;
     }
 
@@ -98,26 +102,26 @@ public class CursorPractice2 : MonoBehaviour
         {
             NowIndex = array.Length - 1;
             array[0].GetComponent<SpriteRenderer>().color = Color.white;
-            //‚±‚±‚ğAnimation‚Å“_–Å‚³‚¹‚é‚È‚Ç‚·‚ê‚ÎA‚³‚ç‚ÉƒJ[ƒ\ƒ‹‚Á‚Û‚­‚È‚é‚Ì‚Å‚ÍH
+            //ã“ã“ã‚’Animationã§ç‚¹æ»…ã•ã›ã‚‹ãªã©ã™ã‚Œã°ã€ã•ã‚‰ã«ã‚«ãƒ¼ã‚½ãƒ«ã£ã½ããªã‚‹ã®ã§ã¯ï¼Ÿ
             array[NowIndex].GetComponent<SpriteRenderer>().color = Color.red;
         }
         currentIndex = NowIndex;
     }
 
     /// <summary>
-    /// ƒAƒCƒeƒ€‚ğƒAƒCƒeƒ€ƒŠƒXƒg‚É’Ç‰Á‚·‚é
+    /// ã‚¢ã‚¤ãƒ†ãƒ ã‚’ã‚¢ã‚¤ãƒ†ãƒ ãƒªã‚¹ãƒˆã«è¿½åŠ ã™ã‚‹
     /// </summary>
     /// <param name="item"></param>
     public void GetItem(ItemBase2D item)
     {
         int index = _itemList.FindIndex(x => x.itemName == item);
 
-        //Œ©‚Â‚©‚Á‚½‚Ìˆ—(‚È‚¢‚Í-1‚ª•Ô‚³‚ê‚é)
+        //è¦‹ã¤ã‹ã£ãŸæ™‚ã®å‡¦ç†(ãªã„æ™‚ã¯-1ãŒè¿”ã•ã‚Œã‚‹)
         if (index >= 0)
         {
             _itemList[index] = (item, _itemList[index].itemNumber + 1);
         }
-        //Œ©‚Â‚©‚ç‚È‚©‚Á‚½‚Ìˆ—
+        //è¦‹ã¤ã‹ã‚‰ãªã‹ã£ãŸæ™‚ã®å‡¦ç†
         else
         {
             _itemList.Add((item, 1));
@@ -127,17 +131,20 @@ public class CursorPractice2 : MonoBehaviour
 
     private void UpdateUI()
     {
-        //ˆê’U‹ó‚É‚·‚é
+        //ä¸€æ—¦ç©ºã«ã™ã‚‹
         for (int i = 0; i < texts.Length; i++)
         {
             texts[i].text = "";
         }
-        //Œ»İ‚ÌƒŠƒXƒg‚ğ”½‰f‚·‚é
-        //List‚Í€–Ú‚ğÁ‚µ‚½‚è’Ç‰Á‚Å‚«‚é‚½‚ßAƒAƒCƒeƒ€ˆ—‚É‚Í•Ö—˜
+        //ç¾åœ¨ã®ãƒªã‚¹ãƒˆã‚’åæ˜ ã™ã‚‹
+        //Listã¯é …ç›®ã‚’æ¶ˆã—ãŸã‚Šè¿½åŠ ã§ãã‚‹ãŸã‚ã€ã‚¢ã‚¤ãƒ†ãƒ å‡¦ç†ã«ã¯ä¾¿åˆ©
         for (int i = 0; i < _itemList.Count && i < texts.Length; i++)
         {
-            texts[i].text = $"{_itemList[i].itemName.gameObject.name}~{_itemList[i].itemNumber}";
+            texts[i].text = $"{_itemList[i].itemName.gameObject.name}Ã—{_itemList[i].itemNumber}";
         }
+        //ã‚‚ã—ã‚‚ä½¿ã£ã¦ã„ãªã„é …ç›®ãŒã‚ã£ãŸã‚‰ã€ãã®é …ç›®ã¨æ–‡å­—ã‚’è¦‹ãˆãªãã™ã‚‹
+        //ä½¿ã£ã¦ã„ãªã„é …ç›®ãŒ1ã¤ã§ã‚‚ã‚ã£ãŸã‚‰ã€ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ã§ããªãã™ã‚‹
+       
     }
 }
 
