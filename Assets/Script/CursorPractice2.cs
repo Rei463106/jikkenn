@@ -30,10 +30,6 @@ public class CursorPractice2 : MonoBehaviour
 
     void Update()
     {
-        if(!Input.anyKey)
-        {
-            _itemBase2D._animator.SetBool(_itemBase2D.animationName, false);
-        }
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             DownCursor(currentIndex);

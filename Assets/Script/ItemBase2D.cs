@@ -8,10 +8,10 @@ public abstract class ItemBase2D : MonoBehaviour
     /// </summary>
     [SerializeField] GameObject _animeGameObject;
     public Animator _animator;
-    public string animationName="null";
+    public string animationName;
     public virtual void Activate()
     {
-        _animator.SetBool(animationName, true);
+        _animator.SetTrigger(animationName);
     }
     public void Awake()
     {
