@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class InputSys : MonoBehaviour
@@ -11,29 +11,29 @@ public class InputSys : MonoBehaviour
 
     void Update()
     {
-        //Œ»İ‚ÌƒL[ƒ{[ƒhî•ñ
+        //ç¾åœ¨ã®ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰æƒ…å ±
         var current = Keyboard.current;
-        //ƒL[ƒ{[ƒhÚ‘±ƒ`ƒFƒbƒN
+        //ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰æ¥ç¶šãƒã‚§ãƒƒã‚¯
         if (current == null) return;
 
-        //aƒL[‚ª‰Ÿ‚³‚ê‚Ä‚¢‚é‚©‚Ç‚¤‚©‚Ìæ“¾
+        //aã‚­ãƒ¼ãŒæŠ¼ã•ã‚Œã¦ã„ã‚‹ã‹ã©ã†ã‹ã®å–å¾—
         var aKey = current.aKey;
-        //aƒL[‚ª‰Ÿ‚³‚ê‚½uŠÔ‚©‚Ç‚¤‚©
-        if (aKey.wasPressedThisFrame) Debug.Log("aƒL[‚ª‰Ÿ‚³‚ê‚½");
-        //aƒL[‚ğ—£‚µ‚½uŠÔ‚©‚Ç‚¤‚©
-        if (aKey.wasReleasedThisFrame) Debug.Log("aƒL[‚ğ—£‚µ‚½");
-        //aƒL[‚ª‰Ÿ‚³‚ê‚Ä‚¢‚é‚©‚Ç‚¤‚©
-        if (aKey.isPressed) Debug.Log("aƒL[‚ª‰Ÿ‚³‚ê‚Ä‚¢‚é");
+        //aã‚­ãƒ¼ãŒæŠ¼ã•ã‚ŒãŸç¬é–“ã‹ã©ã†ã‹
+        if (aKey.wasPressedThisFrame) Debug.Log("aã‚­ãƒ¼ãŒæŠ¼ã•ã‚ŒãŸ");
+        //aã‚­ãƒ¼ã‚’é›¢ã—ãŸç¬é–“ã‹ã©ã†ã‹
+        if (aKey.wasReleasedThisFrame) Debug.Log("aã‚­ãƒ¼ã‚’é›¢ã—ãŸ");
+        //aã‚­ãƒ¼ãŒæŠ¼ã•ã‚Œã¦ã„ã‚‹ã‹ã©ã†ã‹
+        if (aKey.isPressed) Debug.Log("aã‚­ãƒ¼ãŒæŠ¼ã•ã‚Œã¦ã„ã‚‹");
 
 
-        //Œ»İ‚Ìƒ}ƒEƒX‚Ìî•ñ
+        //ç¾åœ¨ã®ãƒã‚¦ã‚¹ã®æƒ…å ±
         var current2 = Mouse.current;
         if (current2 == null) return;
-        //ƒ}ƒEƒXƒJ[ƒ\ƒ‹‚ÌˆÊ’uæ“¾
+        //ãƒã‚¦ã‚¹ã‚«ãƒ¼ã‚½ãƒ«ã®ä½ç½®å–å¾—
         var cursorPosition = current2.position.ReadValue();
         Debug.Log(cursorPosition);
-        //¶ƒ{ƒ^ƒ“‚Ì“ü—Íæ“¾
+        //å·¦ãƒœã‚¿ãƒ³ã®å…¥åŠ›å–å¾—
         var leftButton = current2.leftButton;
-        //¶ƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚Ä‚¢‚é‚©”Û‚©‚ÍƒL[‚Ì‚Æ“¯‚¶
+        //å·¦ãƒœã‚¿ãƒ³ãŒæŠ¼ã•ã‚Œã¦ã„ã‚‹ã‹å¦ã‹ã¯ã‚­ãƒ¼ã®æ™‚ã¨åŒã˜
     }
 }

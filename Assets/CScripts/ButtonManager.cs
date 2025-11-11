@@ -49,6 +49,10 @@ public class ButtonManager : MonoBehaviour
     float gameTime = default;
     [SerializeField] float limitTime = default;
     [SerializeField] Text timerText;
+    //現在の時間
+    float nowTime = default;
+    //取り置きしておく時間
+    float timerTime = default;
 
     void Start()
     {
@@ -59,10 +63,19 @@ public class ButtonManager : MonoBehaviour
 
     void Update()
     {
-        gameTime += Time.deltaTime;
-        float nowTime = limitTime - gameTime;
-        timerText.text = $"{nowTime.ToString("000")}";
-        if (!isButton) return;
+
+        if (isButton)
+        {
+            gameTime += Time.deltaTime;
+            nowTime = limitTime - gameTime;
+            timerText.text = $"{nowTime.ToString("000")}";
+        }
+        else
+        {
+            timerTime = nowTime;
+            timerText.text = $"{timerTime.ToString("000")}";
+            return;
+        }
     }
 
     public void ObjectMove()//オブジェクトを動かす、IsButtonがtrueの時実行
@@ -90,6 +103,7 @@ public class ButtonManager : MonoBehaviour
     public void Anim(bool correct)
     {
         //正解したか否かでアニメーションを変える
+        //このアニメーションの終わりにケーキが動くようにObjectMoveを呼び出す。
         if (correct)
         {
 
