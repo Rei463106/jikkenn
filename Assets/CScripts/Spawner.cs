@@ -31,4 +31,11 @@ public class Spawner : MonoBehaviour
             Destroy(a);
         }
     }
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+       if(collision.name == _spawnParts.name)
+       {
+           list.RemoveAt(0);
+       }
+    }
 }

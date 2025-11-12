@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -40,7 +41,7 @@ public class ButtonManager : MonoBehaviour
     /// <summary>
     /// 点数加算用
     /// </summary>
-    Text _scoreText;
+    [SerializeField]Text _scoreText;
     int score = 0;
 
     /// <summary>
@@ -54,8 +55,24 @@ public class ButtonManager : MonoBehaviour
     //取り置きしておく時間
     float timerTime = default;
 
+    //実験用
+    public Action<bool> JudgeAfter;
+
+    CakeJudgeBase _cakeJudgeBase;
+
+    private void OnEnable()
+    {
+        JudgeAfter += AddCount;
+        JudgeAfter += Anim;
+    }
+    private void OnDisable()
+    {
+        JudgeAfter -= AddCount;
+        JudgeAfter -= Anim;
+    }
     void Start()
     {
+        _cakeJudgeBase=GameObject.FindAnyObjectByType<CakeJudgeBase>();
         NowObject = Instantiate(m_objectPrefab, m_spawnPoint.position, Quaternion.identity);
         NowObject.transform.DOMove(m_finishPoint, stopTime).OnComplete(() => isButton = true);
         count++;
@@ -82,6 +99,8 @@ public class ButtonManager : MonoBehaviour
     {
         if (count >= 2 && isButton)
         {
+            //引数はケーキの方から取ってくる
+            JudgeAfter(_cakeJudgeBase.judgement);
             isButton = false;
             GameObject lastObject = NowObject;
             //全部終わるまで待つ
