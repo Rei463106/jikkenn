@@ -10,7 +10,7 @@ public class SpawnBase : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
     /// トリガーに入ってるか判定
     /// </summary>
     bool isT = default;
-
+    int insideCount = 0;
     void Start()
     {
         _sprite = GetComponent<SpriteRenderer>();
@@ -36,13 +36,16 @@ public class SpawnBase : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
     void OnTriggerEnter2D(Collider2D collision)
     {
         //入っていなければ…の条件で
-        if (collision.gameObject.name == "Cake" || collision.gameObject.name == "Floor")
-            isT = false;
+        if (collision.CompareTag("Floor") || collision.CompareTag("Cake"))
+            insideCount++;
+
+        isT = insideCount == 0;
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "Cake" || collision.gameObject.name == "Floor")
-            isT = true;
-        Debug.Log(isT);
+        if (collision.CompareTag("Floor") || collision.CompareTag("Cake"))
+            insideCount--;
+
+        isT = insideCount == 0;
     }
 }

@@ -1,27 +1,13 @@
 ﻿using UnityEngine;
-using UnityEngine.EventSystems;
 
-public class CakeJudgeBase : MonoBehaviour, IPointerDownHandler
+public abstract class CakeJudgeBase : MonoBehaviour
 {
-    //これの派生をケーキにくっつける。
-    /// <summary>
-    /// クリームのゲームオブジェクト
-    /// </summary>
-    [SerializeField] GameObject CCream;
-    /// <summary>
-    /// 色の変化集
-    /// </summary>
-    Color[] colors;
-    int colorsIndex;
-    /// <summary>
-    /// 判定が合っているか
-    /// </summary>
+    //これの派生をケーキにくっつける
+    //合っているかの判断用
     public bool judgement;
-
-    public void OnPointerDown(PointerEventData eventData)
+    //判定用のメソッド
+    public virtual bool JudgeObject()
     {
-        var a = CCream.GetComponent<SpriteRenderer>().color;
-        a = colors[colorsIndex % 3];
-        colorsIndex++;
+        return judgement;
     }
 }

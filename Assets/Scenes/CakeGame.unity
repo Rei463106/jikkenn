@@ -206,8 +206,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1315778087}
-        m_TargetAssemblyTypeName: MoveManager, Assembly-CSharp
-        m_MethodName: ObjectMove
+        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
+        m_MethodName: FinalJudge
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -384,6 +384,7 @@ RectTransform:
   - {fileID: 1552017053}
   - {fileID: 1455412734}
   - {fileID: 2093777938}
+  - {fileID: 655609834}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -812,6 +813,130 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 632826797}
   m_CullTransparentMesh: 1
+--- !u!1 &655609833
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 655609834}
+  - component: {fileID: 655609836}
+  - component: {fileID: 655609835}
+  m_Layer: 5
+  m_Name: ScoreText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &655609834
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 655609833}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 202498899}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 1055, y: 497}
+  m_SizeDelta: {x: 500, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &655609835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 655609833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 70
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 100
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: 0
+--- !u!222 &655609836
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 655609833}
+  m_CullTransparentMesh: 1
+--- !u!1 &869336088
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 869336090}
+  - component: {fileID: 869336089}
+  m_Layer: 0
+  m_Name: ShortCakeJudge
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &869336089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 869336088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9be1a320fd6ac9e4abdf03780da02faa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  judgement: 0
+--- !u!4 &869336090
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 869336088}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1291391033
 GameObject:
   m_ObjectHideFlags: 0
@@ -903,6 +1028,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1315778088}
   - component: {fileID: 1315778087}
+  - component: {fileID: 1315778089}
   m_Layer: 0
   m_Name: ---System---
   m_TagString: Untagged
@@ -922,11 +1048,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df2c86e90f8332243bb4478c95e2e328, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_objectPrefab: {fileID: 6910277115706929893, guid: ac430fa74fb7b1b4b8268df3c1266146, type: 3}
+  m_objectPrefab: {fileID: 1737756753239294031, guid: 869c96b0bca3a3342863cbf5512fdc9c, type: 3}
   m_spawnPoint: {fileID: 2024356132}
   m_finishPoint: {x: 0, y: 0}
   stopTime: 5
   m_destroyPoint: {x: 10, y: 0}
+  isButton: 0
+  _scoreText: {fileID: 655609835}
   limitTime: 100
   timerText: {fileID: 1552017051}
 --- !u!4 &1315778088
@@ -944,6 +1072,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1315778089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315778086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5886ff3723c452143a148f45ebcadc2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cakeJudgeBaseArray:
+  - {fileID: 869336089}
+  - {fileID: 1709589472}
 --- !u!1 &1455412733
 GameObject:
   m_ObjectHideFlags: 0
@@ -1338,6 +1481,51 @@ RectTransform:
   m_AnchoredPosition: {x: 26, y: 487}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1709589471
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1709589473}
+  - component: {fileID: 1709589472}
+  m_Layer: 0
+  m_Name: ChocolateCakeJudge
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1709589472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709589471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f801f579b66cd2446807e902832eca6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  judgement: 0
+--- !u!4 &1709589473
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709589471}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1944733877
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1361,6 +1549,10 @@ PrefabInstance:
     - target: {fileID: 5735500399909403929, guid: ccf93fab42457a7459303e50082f9d79, type: 3}
       propertyPath: m_Color.r
       value: 0.5639801
+      objectReference: {fileID: 0}
+    - target: {fileID: 5735500399909403929, guid: ccf93fab42457a7459303e50082f9d79, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3000
       objectReference: {fileID: 0}
     - target: {fileID: 8407877184352603996, guid: ccf93fab42457a7459303e50082f9d79, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1505,7 +1697,7 @@ GameObject:
   - component: {fileID: 2093452450}
   m_Layer: 0
   m_Name: Floor
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1860,6 +2052,8 @@ SceneRoots:
   - {fileID: 246031883}
   - {fileID: 1315778088}
   - {fileID: 473446671}
+  - {fileID: 869336090}
+  - {fileID: 1709589473}
   - {fileID: 339998208}
   - {fileID: 307654733}
   - {fileID: 2024356132}

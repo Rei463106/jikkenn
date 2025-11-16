@@ -1,5 +1,4 @@
 ﻿using DG.Tweening;
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -35,13 +34,13 @@ public class ButtonManager : MonoBehaviour
     /// <summary>
     /// ボタンを連続で押せなくするための変数
     /// </summary>
-    bool isButton = false;
+    public bool isButton = false;
     int count = 1;
 
     /// <summary>
     /// 点数加算用
     /// </summary>
-    [SerializeField]Text _scoreText;
+    [SerializeField] Text _scoreText;
     int score = 0;
 
     /// <summary>
@@ -55,27 +54,20 @@ public class ButtonManager : MonoBehaviour
     //取り置きしておく時間
     float timerTime = default;
 
-    //実験用
-    public Action<bool> JudgeAfter;
-
+    //変数用
+    CakeJudgeBase _cakeJudgeBaseResult;
     CakeJudgeBase _cakeJudgeBase;
+    ListBox _listBox;
+    ShortCake _shortCake;
 
-    private void OnEnable()
-    {
-        JudgeAfter += AddCount;
-        JudgeAfter += Anim;
-    }
-    private void OnDisable()
-    {
-        JudgeAfter -= AddCount;
-        JudgeAfter -= Anim;
-    }
+
     void Start()
     {
-        _cakeJudgeBase=GameObject.FindAnyObjectByType<CakeJudgeBase>();
-        NowObject = Instantiate(m_objectPrefab, m_spawnPoint.position, Quaternion.identity);
-        NowObject.transform.DOMove(m_finishPoint, stopTime).OnComplete(() => isButton = true);
-        count++;
+        //代入
+        _listBox = GameObject.FindAnyObjectByType<ListBox>();
+        _cakeJudgeBase = GameObject.FindAnyObjectByType<CakeJudgeBase>();
+        _shortCake = GameObject.FindAnyObjectByType<ShortCake>();
+        ObjectMoveStart();
     }
 
     void Update()
@@ -95,23 +87,32 @@ public class ButtonManager : MonoBehaviour
         }
     }
 
-    public void ObjectMove()//オブジェクトを動かす、IsButtonがtrueの時実行
+    void ObjectMoveStart()
+    {
+        NowObject = Instantiate(m_objectPrefab, m_spawnPoint.position, Quaternion.identity);
+        newCakeSelect();
+        NowObject.transform.DOMove(m_finishPoint, stopTime).OnComplete(() => isButton = true);
+        count++;
+    }
+
+    void ObjectMove()//オブジェクトを動かす、IsButtonがtrueの時実行
     {
         if (count >= 2 && isButton)
         {
-            //引数はケーキの方から取ってくる
-            JudgeAfter(_cakeJudgeBase.judgement);
             isButton = false;
+
             GameObject lastObject = NowObject;
-            //全部終わるまで待つ
             lastObject.transform.DOMove(m_destroyPoint, stopTime)
                 .OnComplete(() => Destroy(lastObject));
+
             NowObject = Instantiate(m_objectPrefab, m_spawnPoint.position, Quaternion.identity);
-            NowObject.transform.DOMove(m_finishPoint, stopTime).OnComplete(() => isButton = true);
+            newCakeSelect();
+            NowObject.transform.DOMove(m_finishPoint, stopTime)
+                .OnComplete(() => isButton = true);
         }
     }
 
-    public void AddCount(bool correct)//正解だったらカウントを1足す
+    void AddCount(bool correct)//正解だったらカウントを1足す
     {
         if (correct)
         {
@@ -119,7 +120,7 @@ public class ButtonManager : MonoBehaviour
             _scoreText.text = $"{score}点";
         }
     }
-    public void Anim(bool correct)
+    void Anim(bool correct)
     {
         //正解したか否かでアニメーションを変える
         //このアニメーションの終わりにケーキが動くようにObjectMoveを呼び出す。
@@ -131,11 +132,32 @@ public class ButtonManager : MonoBehaviour
         {
 
         }
+        _cakeJudgeBaseResult.judgement = false;
+        Invoke("ObjectMove", 1);
     }
 
-    public void newObject()
+    public void FinalJudge()
     {
-        //合ってても間違ってても、NowObjectにObjectListのどれかを代入する
-        //合っているか間違ってるかの実際の判定はケーキ側で行い、その結果をcorrectに渡す
+        bool finalJudge = _cakeJudgeBaseResult.JudgeObject();
+        Anim(finalJudge);
+        AddCount(finalJudge);
+        //判定ボタンを押されたらコライダーに反応している全てを子にする
+        
+    }
+
+    void newCakeSelect()
+    {
+        //リストから何を取り出したのかを入れておく
+        //乱数になるように調整
+        _cakeJudgeBaseResult = _listBox._cakeJudgeBaseArray[Random.Range(0, 2)];
+        Debug.Log(_cakeJudgeBaseResult);
+        if (_cakeJudgeBaseResult is ShortCake sc)
+        {
+            sc.SSetting(NowObject.GetComponentInChildren<DL>(),NowObject.GetComponentInChildren<UM>());
+        }
+        else if (_cakeJudgeBaseResult is ChocoCake cc)
+        {
+            cc.CSetting(NowObject.GetComponentInChildren<UM>());
+        }
     }
 }
