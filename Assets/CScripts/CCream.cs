@@ -20,9 +20,9 @@ public class CCream : MonoBehaviour,IPointerDownHandler
     public void OnPointerDown(PointerEventData eventData)
     {
         if (_buttonManager.isButton)
-        { 
-            spriteRenderer.color = colors[colorsIndex % 3];
+        {
             colorsIndex++;
+            spriteRenderer.color = colors[colorsIndex % 3];
         }
     }
 }

@@ -23,8 +23,8 @@ public class CCake : MonoBehaviour, IPointerDownHandler
     {
         if (_buttonManager.isButton)
         {
-            spriteRenderer.color = colors[colorsIndex % 3];
             colorsIndex++;
+            spriteRenderer.color = colors[colorsIndex % 3];
         }
     }
 }

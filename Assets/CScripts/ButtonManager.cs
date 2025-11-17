@@ -85,6 +85,9 @@ public class ButtonManager : MonoBehaviour
             timerText.text = $"{timerTime.ToString("000")}";
             return;
         }
+
+        //0以下になったらリザルト画面に進む
+        //if (nowTime <= 0)
     }
 
     void ObjectMoveStart()

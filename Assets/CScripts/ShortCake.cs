@@ -15,7 +15,7 @@ public class ShortCake : CakeJudgeBase
     {
         if (_dl.dlName.Contains("strawberry") && _um.umName.Contains("banana") &&
             _dm.dmName == "" && _dr.drName == "" && _ls.lsName == "" && _rs.rsName == "" &&
-            _ul.ulName == "" && _ur.urName == "" && _cCake.colorsIndex % 3 == 0 && _cCream.colorsIndex % 3 == 0) 
+            _ul.ulName == "" && _ur.urName == "" && _cCake.colorsIndex % 3 == 1 && _cCream.colorsIndex % 3 == 2) 
             judgement = true;
         else judgement = false;
         return judgement;
