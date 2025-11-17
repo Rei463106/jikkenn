@@ -8,6 +8,15 @@ public class DR : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        drName = collision.gameObject.name;
+        if (collision.gameObject.tag == "Sweets")
+        {
+            drName = collision.gameObject.name;
+            //Debug.Log(umName);
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        drName = "";
+        //Debug.Log(umName);
     }
 }

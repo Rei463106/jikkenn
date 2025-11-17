@@ -140,13 +140,6 @@ public class ButtonManager : MonoBehaviour
                 item.transform.SetParent(NowObject.transform, true);
             }
         }
-        //foreach(var item in NowObject.GetComponent<NCColider2>().list)
-        //{
-        //    if (item != null)
-        //    {
-        //        item.transform.SetParent(NowObject.transform, true);
-        //    }
-        //}
         Invoke("ObjectMove", 1);
     }
 
@@ -167,11 +160,17 @@ public class ButtonManager : MonoBehaviour
         Debug.Log(_cakeJudgeBaseResult);
         if (_cakeJudgeBaseResult is ShortCake sc)
         {
-            sc.SSetting(NowObject.GetComponentInChildren<DL>(), NowObject.GetComponentInChildren<UM>());
+            sc.SSetting(NowObject.GetComponentInChildren<DL>(), NowObject.GetComponentInChildren<DM>(), NowObject.GetComponentInChildren<DR>(),
+                     NowObject.GetComponentInChildren<LS>(), NowObject.GetComponentInChildren<RS>(), NowObject.GetComponentInChildren<UL>(),
+                     NowObject.GetComponentInChildren<UM>(), NowObject.GetComponentInChildren<UR>(), NowObject.GetComponentInChildren<CCake>()
+                     , NowObject.GetComponentInChildren<CCream>());
         }
         else if (_cakeJudgeBaseResult is ChocoCake cc)
         {
-            cc.CSetting(NowObject.GetComponentInChildren<UM>());
+            cc.CSetting(NowObject.GetComponentInChildren<DL>(), NowObject.GetComponentInChildren<DM>(), NowObject.GetComponentInChildren<DR>(),
+                    NowObject.GetComponentInChildren<LS>(), NowObject.GetComponentInChildren<RS>(), NowObject.GetComponentInChildren<UL>(),
+                    NowObject.GetComponentInChildren<UM>(), NowObject.GetComponentInChildren<UR>(), NowObject.GetComponentInChildren<CCake>()
+                     , NowObject.GetComponentInChildren<CCream>());
         }
     }
 }

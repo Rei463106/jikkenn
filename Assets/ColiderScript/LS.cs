@@ -8,6 +8,15 @@ public class LS : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        lsName = collision.gameObject.name;
+        if (collision.gameObject.tag == "Sweets")
+        {
+            lsName = collision.gameObject.name;
+            //Debug.Log(umName);
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        lsName = "";
+        //Debug.Log(umName);
     }
 }

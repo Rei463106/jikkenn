@@ -8,6 +8,15 @@ public class RS : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        rsName = collision.gameObject.name;
+        if (collision.gameObject.tag == "Sweets")
+        {
+            rsName = collision.gameObject.name;
+            //Debug.Log(umName);
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        rsName = "";
+        //Debug.Log(umName);
     }
 }

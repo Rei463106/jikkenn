@@ -399,6 +399,7 @@ MonoBehaviour:
   - {r: 0.8415094, g: 0.83674616, b: 0.83674616, a: 1}
   - {r: 0.8867924, g: 0.64618134, b: 0.2191883, a: 1}
   - {r: 0.735849, g: 0.3589772, b: 0.15411179, a: 1}
+  colorsIndex: 0
 --- !u!1 &2736272217559528147
 GameObject:
   m_ObjectHideFlags: 0
@@ -1504,9 +1505,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colors:
-  - {r: 1, g: 0, b: 0.08637333, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
   - {r: 0, g: 0.5262701, b: 0.97735846, a: 1}
-  - {r: 1, g: 0.97724485, b: 0, a: 1}
+  - {r: 1, g: 0, b: 0, a: 1}
+  colorsIndex: 0
 --- !u!61 &7350564971462420715
 BoxCollider2D:
   m_ObjectHideFlags: 0

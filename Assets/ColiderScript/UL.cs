@@ -8,6 +8,15 @@ public class UL : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        ulName = collision.gameObject.name;
+        if (collision.gameObject.tag == "Sweets")
+        {
+            ulName = collision.gameObject.name;
+            //Debug.Log(umName);
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        ulName = "";
+        //Debug.Log(umName);
     }
 }
