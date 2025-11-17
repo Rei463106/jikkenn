@@ -60,13 +60,13 @@ public class ButtonManager : MonoBehaviour
     ListBox _listBox;
     ShortCake _shortCake;
 
-
     void Start()
     {
         //代入
         _listBox = GameObject.FindAnyObjectByType<ListBox>();
         _cakeJudgeBase = GameObject.FindAnyObjectByType<CakeJudgeBase>();
         _shortCake = GameObject.FindAnyObjectByType<ShortCake>();
+
         ObjectMoveStart();
     }
 
@@ -133,16 +133,30 @@ public class ButtonManager : MonoBehaviour
 
         }
         _cakeJudgeBaseResult.judgement = false;
+        foreach (var item in NowObject.GetComponentInChildren<NCColider>().list)
+        {
+            if (item != null)
+            {
+                item.transform.SetParent(NowObject.transform, true);
+            }
+        }
+        //foreach(var item in NowObject.GetComponent<NCColider2>().list)
+        //{
+        //    if (item != null)
+        //    {
+        //        item.transform.SetParent(NowObject.transform, true);
+        //    }
+        //}
         Invoke("ObjectMove", 1);
     }
+
+
 
     public void FinalJudge()
     {
         bool finalJudge = _cakeJudgeBaseResult.JudgeObject();
         Anim(finalJudge);
         AddCount(finalJudge);
-        //判定ボタンを押されたらコライダーに反応している全てを子にする
-        
     }
 
     void newCakeSelect()
@@ -153,7 +167,7 @@ public class ButtonManager : MonoBehaviour
         Debug.Log(_cakeJudgeBaseResult);
         if (_cakeJudgeBaseResult is ShortCake sc)
         {
-            sc.SSetting(NowObject.GetComponentInChildren<DL>(),NowObject.GetComponentInChildren<UM>());
+            sc.SSetting(NowObject.GetComponentInChildren<DL>(), NowObject.GetComponentInChildren<UM>());
         }
         else if (_cakeJudgeBaseResult is ChocoCake cc)
         {

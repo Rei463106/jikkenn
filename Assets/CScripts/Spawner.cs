@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Spawner : MonoBehaviour
 {
@@ -17,6 +19,7 @@ public class Spawner : MonoBehaviour
     /// </summary>
     private List<GameObject> list = new List<GameObject>();
 
+
     public void Spawn()
     {
         var part = Instantiate(_spawnParts, _position, Quaternion.identity);
@@ -24,7 +27,7 @@ public class Spawner : MonoBehaviour
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.name == _spawnParts.name && list.Count > 1)
+        if (collision.gameObject.name == _spawnParts.gameObject.name && list.Count > 1)
         {
             var a = list[1];
             list.RemoveAt(1);
@@ -33,9 +36,10 @@ public class Spawner : MonoBehaviour
     }
     public void OnTriggerExit2D(Collider2D collision)
     {
-       if(collision.name == _spawnParts.name)
-       {
-           list.RemoveAt(0);
-       }
+        if (collision.gameObject.name == _spawnParts.gameObject.name)
+        {
+            list.RemoveAt(0);
+        }
     }
+
 }

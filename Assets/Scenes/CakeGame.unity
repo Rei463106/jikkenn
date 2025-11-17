@@ -541,7 +541,7 @@ Transform:
   m_GameObject: {fileID: 307654731}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.77413, y: 0.7865157, z: -9.9933}
+  m_LocalPosition: {x: -6.69, y: -3.68, z: -9.9933}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -587,7 +587,7 @@ Transform:
   m_GameObject: {fileID: 339998206}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 781.3865, y: 562.7109, z: -9.970861}
+  m_LocalPosition: {x: -6.82, y: -1.89, z: -9.970861}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1052,7 +1052,7 @@ MonoBehaviour:
   m_spawnPoint: {fileID: 2024356132}
   m_finishPoint: {x: 0, y: 0}
   stopTime: 5
-  m_destroyPoint: {x: 10, y: 0}
+  m_destroyPoint: {x: 15, y: 0}
   isButton: 0
   _scoreText: {fileID: 655609835}
   limitTime: 100
@@ -1100,6 +1100,7 @@ GameObject:
   - component: {fileID: 1455412736}
   - component: {fileID: 1455412735}
   - component: {fileID: 1455412738}
+  - component: {fileID: 1455412739}
   m_Layer: 5
   m_Name: SSpawnButton
   m_TagString: Untagged
@@ -1290,6 +1291,33 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 364.41202, y: 141.23181}
   m_EdgeRadius: 0
+--- !u!50 &1455412739
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1455412733}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1496611989
 GameObject:
   m_ObjectHideFlags: 0
@@ -1742,7 +1770,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -2000
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1854,6 +1882,7 @@ GameObject:
   - component: {fileID: 2093777940}
   - component: {fileID: 2093777939}
   - component: {fileID: 2093777942}
+  - component: {fileID: 2093777943}
   m_Layer: 5
   m_Name: BSpawnButton
   m_TagString: Untagged
@@ -2044,6 +2073,33 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 361.94592, y: 134.61497}
   m_EdgeRadius: 0
+--- !u!50 &2093777943
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2093777937}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
