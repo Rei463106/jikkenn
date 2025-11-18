@@ -16,22 +16,11 @@ public class CreamDrag : MonoBehaviour, IDragHandler, IPointerClickHandler, IPoi
     /// </summary>
     bool isDrag;
 
-    /// <summary>
-    /// Instaticiate‚³‚ê‚éPrefab
-    /// </summary>
-    [SerializeField] GameObject _spawnParts;
-
-    void OnEnable()
-    {
-        Squeeze += isSqueeze;
-    }
-    void OnDisable()
-    {
-        Squeeze -= isSqueeze;
-    }
+    CreamInstanciate _creamInstanciate;
     void Start()
     {
         _sprite = GetComponent<SpriteRenderer>();
+        _creamInstanciate=GameObject.FindAnyObjectByType<CreamInstanciate>();
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -49,11 +38,7 @@ public class CreamDrag : MonoBehaviour, IDragHandler, IPointerClickHandler, IPoi
     public void OnPointerClick(PointerEventData pointerEventData)
     {
         if (isDrag) return;
-        Squeeze();
+        _creamInstanciate.isSqueeze();
     }
-    public void isSqueeze()
-    {
-        Debug.Log("squeeze");
-        var part = Instantiate(_spawnParts, this.transform.position, Quaternion.identity);
-    }
+   
 }

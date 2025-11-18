@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class DL : MonoBehaviour
 {
+    //もしもこの中に二つ以上入れたければリストを使って管理すること。
     public string dlName;
 
     private void OnTriggerStay2D(Collider2D collision)
