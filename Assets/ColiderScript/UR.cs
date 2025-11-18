@@ -11,7 +11,7 @@ public class UR : MonoBehaviour
         if (collision.gameObject.tag == "Sweets")
         {
             urName = collision.gameObject.name;
-            //Debug.Log(umName);
+            Debug.Log(urName);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)

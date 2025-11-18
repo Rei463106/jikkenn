@@ -8,4 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Title.unity
+    guid: c84fd3dbde9feac4b8b2ff0b5a7bba2d
+  - enabled: 1
+    path: Assets/Scenes/CakeGame.unity
+    guid: f7619dc59991b3a4a8399212d5839a88
+  - enabled: 1
+    path: Assets/Scenes/Result.unity
+    guid: b053d30ea3852bb46a7a0913f0d51d5e
   m_configObjects: {}

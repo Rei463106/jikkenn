@@ -50,7 +50,7 @@ public class ButtonManager : MonoBehaviour
     [SerializeField] float limitTime = default;
     [SerializeField] Text timerText;
     //現在の時間
-    float nowTime = default;
+    public float nowTime = default;
     //取り置きしておく時間
     float timerTime = default;
 
@@ -59,6 +59,7 @@ public class ButtonManager : MonoBehaviour
     CakeJudgeBase _cakeJudgeBase;
     ListBox _listBox;
     ShortCake _shortCake;
+    ResultAnim _resultAnim;
 
     void Start()
     {
@@ -66,6 +67,7 @@ public class ButtonManager : MonoBehaviour
         _listBox = GameObject.FindAnyObjectByType<ListBox>();
         _cakeJudgeBase = GameObject.FindAnyObjectByType<CakeJudgeBase>();
         _shortCake = GameObject.FindAnyObjectByType<ShortCake>();
+        _resultAnim = GameObject.FindAnyObjectByType<ResultAnim>();
 
         ObjectMoveStart();
     }
@@ -87,7 +89,11 @@ public class ButtonManager : MonoBehaviour
         }
 
         //0以下になったらリザルト画面に進む
-        //if (nowTime <= 0)
+        if (nowTime <= 0)
+        {
+            _resultAnim.ResultAnimation();
+            timerText.text = ("000");
+        }
     }
 
     void ObjectMoveStart()
