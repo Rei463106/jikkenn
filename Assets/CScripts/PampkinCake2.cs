@@ -1,4 +1,8 @@
-public class ShortCake : CakeJudgeBase
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PampkinCake2 : CakeJudgeBase
 {
     DL _dl;
     DM _dm;
@@ -13,15 +17,15 @@ public class ShortCake : CakeJudgeBase
 
     public override bool JudgeObject()
     {
-        if (_dl.dlName == "" && _um.umName.Contains("strawberry") &&
+        if (_dl.dlName.Contains("strawberry") && _um.umName.Contains("banana") &&
             _dm.dmName == "" && _dr.drName == "" && _ls.lsName == "" && _rs.rsName == "" &&
-            _ul.ulName.Contains("Hoip") && _ur.urName.Contains("Hoip") && _cCake.colorsIndex % 3 == 0 && _cCream.colorsIndex % 3 == 2)
+            _ul.ulName == "" && _ur.urName == "" && _cCake.colorsIndex % 3 == 1 && _cCream.colorsIndex % 3 == 2)
             judgement = true;
         else judgement = false;
         return judgement;
     }
 
-    public void SSetting(DL dl, DM dm, DR dr, LS ls, RS rs, UL ul, UM um, UR ur, CCake cCake, CCream cCream)
+    public void P2Setting(DL dl, DM dm, DR dr, LS ls, RS rs, UL ul, UM um, UR ur, CCake cCake, CCream cCream)
     {
         _dl = dl;
         _dm = dm;

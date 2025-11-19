@@ -14,9 +14,9 @@ public class ChocoCake : CakeJudgeBase
     public override bool JudgeObject()
     {
         //これだと不十分なので、他の名前が空になっているのを確認する。
-        if (_dl.dlName == "" && _um.umName.Contains("banana") &&
-            _dm.dmName == "" && _dr.drName == "" && _ls.lsName == "" && _rs.rsName == "" &&
-            _ul.ulName == "" && _ur.urName == "" && _cCake.colorsIndex % 3 == 0 && _cCream.colorsIndex % 3 == 0) judgement = true;
+        if (_dl.dlName.Contains("banana") && _um.umName.Contains("Chocolate") &&
+            _dm.dmName == "" && _dr.drName.Contains("banana") && _ls.lsName == "" && _rs.rsName == "" &&
+            _ul.ulName == "" && _ur.urName.Contains("Hoip") && _cCake.colorsIndex % 3 == 0 && _cCream.colorsIndex % 3 == 1) judgement = true;
         else judgement = false;
         return judgement;
     }

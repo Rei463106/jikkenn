@@ -1,5 +1,6 @@
-public class ShortCake : CakeJudgeBase
+public class ChocoCake2 : CakeJudgeBase
 {
+
     DL _dl;
     DM _dm;
     DR _dr;
@@ -13,15 +14,15 @@ public class ShortCake : CakeJudgeBase
 
     public override bool JudgeObject()
     {
-        if (_dl.dlName == "" && _um.umName.Contains("strawberry") &&
-            _dm.dmName == "" && _dr.drName == "" && _ls.lsName == "" && _rs.rsName == "" &&
-            _ul.ulName.Contains("Hoip") && _ur.urName.Contains("Hoip") && _cCake.colorsIndex % 3 == 0 && _cCream.colorsIndex % 3 == 2)
+        if (_dl.dlName == "" && _um.umName.Contains("Hoip") &&
+            _dm.dmName == "" && _dr.drName == "" && _ls.lsName.Contains("banana") && _rs.rsName.Contains("banana") &&
+            _ul.ulName.Contains("Hoip") && _ur.urName.Contains("Hoip") && _cCake.colorsIndex % 3 == 2 && _cCream.colorsIndex % 3 == 2)
             judgement = true;
         else judgement = false;
         return judgement;
     }
 
-    public void SSetting(DL dl, DM dm, DR dr, LS ls, RS rs, UL ul, UM um, UR ur, CCake cCake, CCream cCream)
+    public void C2Setting(DL dl, DM dm, DR dr, LS ls, RS rs, UL ul, UM um, UR ur, CCake cCake, CCream cCream)
     {
         _dl = dl;
         _dm = dm;

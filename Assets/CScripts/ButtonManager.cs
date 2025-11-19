@@ -165,7 +165,7 @@ public class ButtonManager : MonoBehaviour
     {
         //リストから何を取り出したのかを入れておく
         //乱数になるように調整
-        _cakeJudgeBaseResult = _listBox._cakeJudgeBaseArray[Random.Range(0, 2)];
+        _cakeJudgeBaseResult = _listBox._cakeJudgeBaseArray[Random.Range(0, 7)];
         Debug.Log(_cakeJudgeBaseResult);
         if (_cakeJudgeBaseResult is ShortCake sc)
         {
@@ -177,6 +177,35 @@ public class ButtonManager : MonoBehaviour
         else if (_cakeJudgeBaseResult is ChocoCake cc)
         {
             cc.CSetting(NowObject.GetComponentInChildren<DL>(), NowObject.GetComponentInChildren<DM>(), NowObject.GetComponentInChildren<DR>(),
+                    NowObject.GetComponentInChildren<LS>(), NowObject.GetComponentInChildren<RS>(), NowObject.GetComponentInChildren<UL>(),
+                    NowObject.GetComponentInChildren<UM>(), NowObject.GetComponentInChildren<UR>(), NowObject.GetComponentInChildren<CCake>()
+                     , NowObject.GetComponentInChildren<CCream>());
+        }
+        else if (_cakeJudgeBaseResult is ShorCake2 sh)
+        {
+            sh.S2Setting(NowObject.GetComponentInChildren<DL>(), NowObject.GetComponentInChildren<DM>(), NowObject.GetComponentInChildren<DR>(),
+                    NowObject.GetComponentInChildren<LS>(), NowObject.GetComponentInChildren<RS>(), NowObject.GetComponentInChildren<UL>(),
+                    NowObject.GetComponentInChildren<UM>(), NowObject.GetComponentInChildren<UR>(), NowObject.GetComponentInChildren<CCake>()
+                     , NowObject.GetComponentInChildren<CCream>());
+        }
+        else if (_cakeJudgeBaseResult is ChocoCake2 ch)
+        {
+            ch.C2Setting(NowObject.GetComponentInChildren<DL>(), NowObject.GetComponentInChildren<DM>(), NowObject.GetComponentInChildren<DR>(),
+                    NowObject.GetComponentInChildren<LS>(), NowObject.GetComponentInChildren<RS>(), NowObject.GetComponentInChildren<UL>(),
+                    NowObject.GetComponentInChildren<UM>(), NowObject.GetComponentInChildren<UR>(), NowObject.GetComponentInChildren<CCake>()
+                     , NowObject.GetComponentInChildren<CCream>());
+        }
+        else if(_cakeJudgeBaseResult is PampkinCake pm)
+        {
+            pm.PSetting(NowObject.GetComponentInChildren<DL>(), NowObject.GetComponentInChildren<DM>(), NowObject.GetComponentInChildren<DR>(),
+                    NowObject.GetComponentInChildren<LS>(), NowObject.GetComponentInChildren<RS>(), NowObject.GetComponentInChildren<UL>(),
+                    NowObject.GetComponentInChildren<UM>(), NowObject.GetComponentInChildren<UR>(), NowObject.GetComponentInChildren<CCake>()
+                     , NowObject.GetComponentInChildren<CCream>());
+        }
+        else if(_cakeJudgeBaseResult is PampkinCake2 pm2)
+        {
+
+            pm2.P2Setting(NowObject.GetComponentInChildren<DL>(), NowObject.GetComponentInChildren<DM>(), NowObject.GetComponentInChildren<DR>(),
                     NowObject.GetComponentInChildren<LS>(), NowObject.GetComponentInChildren<RS>(), NowObject.GetComponentInChildren<UL>(),
                     NowObject.GetComponentInChildren<UM>(), NowObject.GetComponentInChildren<UR>(), NowObject.GetComponentInChildren<CCake>()
                      , NowObject.GetComponentInChildren<CCream>());
