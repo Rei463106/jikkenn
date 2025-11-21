@@ -42,7 +42,7 @@ public class ButtonManager : MonoBehaviour
     /// 点数加算用
     /// </summary>
     [SerializeField] Text _scoreText;
-    static int score = 0;
+    public static int score = 0;
 
     /// <summary>
     /// 時間管理用
@@ -129,6 +129,7 @@ public class ButtonManager : MonoBehaviour
 
     void AddCount(bool correct)//正解だったらカウントを1足す
     {
+        if (!isButton) return;
         if (correct)
         {
             score++;
@@ -137,6 +138,7 @@ public class ButtonManager : MonoBehaviour
     }
     void Anim(bool correct)
     {
+        if (!isButton) return;
         //正解したか否かでアニメーションを変える
         //このアニメーションの終わりにケーキが動くようにObjectMoveを呼び出す。
         if (correct)

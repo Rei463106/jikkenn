@@ -15,9 +15,10 @@ public class ShorCake2 : CakeJudgeBase
     [SerializeField] CakeCollection _cakeCollection;
     public override bool JudgeObject()
     {
-        if (_dl.dlName.Contains("Cookie") && string.IsNullOrEmpty(_um.umName) &&
-            _dm.dmName.Contains("Cookie") && string.IsNullOrEmpty(_dr.drName) && string.IsNullOrEmpty(_ls.lsName) && string.IsNullOrEmpty(_rs.rsName) &&
-            string.IsNullOrEmpty(_ul.ulName) && string.IsNullOrEmpty(_ur.urName) && _cCake.colorsIndex % 3 == 0 && _cCream.colorsIndex % 3 == 2)
+        if (_ul.ulName.Contains("strawberry") && _um.umName.Contains("strawberry") && _ur.urName.Contains("strawberry") &&
+            string.IsNullOrEmpty(_dl.dlName) && string.IsNullOrEmpty(_dm.dmName) && string.IsNullOrEmpty(_dr.drName)
+            && string.IsNullOrEmpty(_ls.lsName) && string.IsNullOrEmpty(_rs.rsName)
+              && _cCake.colorsIndex % 3 == 0 && _cCream.colorsIndex % 3 == 2)
             judgement = true;
         else judgement = false;
         return judgement;

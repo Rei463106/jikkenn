@@ -15,9 +15,10 @@ public class PampkinCake2 : CakeJudgeBase
     [SerializeField] CakeCollection _cakeCollection;
     public override bool JudgeObject()
     {
-        if (string.IsNullOrEmpty(_dl.dlName) && _um.umName.Contains("Chocolate") &&
-            _dm.dmName.Contains("Pumpkin") && string.IsNullOrEmpty(_dr.drName) && _ls.lsName.Contains("Cookie") && _rs.rsName.Contains("Cookie") &&
-            _ul.ulName.Contains("strawberry") && _ur.urName.Contains("strawberry") && _cCake.colorsIndex % 3 == 1 && _cCream.colorsIndex % 3 == 0)
+        if (_ul.ulName.Contains("strawberry") && _um.umName.Contains("strawberry") && _ur.urName.Contains("strawberry") &&
+            string.IsNullOrEmpty(_dl.dlName) && string.IsNullOrEmpty(_dm.dmName) && string.IsNullOrEmpty(_dr.drName)
+            && string.IsNullOrEmpty(_ls.lsName) && string.IsNullOrEmpty(_rs.rsName)
+              && _cCake.colorsIndex % 3 == 0 && _cCream.colorsIndex % 3 == 2)
             judgement = true;
         else judgement = false;
         return judgement;
