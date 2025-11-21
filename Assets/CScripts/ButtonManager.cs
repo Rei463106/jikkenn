@@ -64,8 +64,11 @@ public class ButtonManager : MonoBehaviour
 
     [SerializeField] UnityEvent _resultCorrectEvent;
     [SerializeField] UnityEvent _resultIncorrectEvent;
+
+    [SerializeField] UnityEvent _startEvent;
     void Start()
     {
+        _startEvent.Invoke();
         //代入
         _listBox = GameObject.FindAnyObjectByType<ListBox>();
         _cakeJudgeBase = GameObject.FindAnyObjectByType<CakeJudgeBase>();
@@ -214,5 +217,5 @@ public class ButtonManager : MonoBehaviour
                      , NowObject.GetComponentInChildren<CCream>());
         }
     }
-   
+
 }
