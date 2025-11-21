@@ -61,6 +61,7 @@ public class ButtonManager : MonoBehaviour
     ShortCake _shortCake;
     ResultAnim _resultAnim;
 
+
     void Start()
     {
         //代入
@@ -165,7 +166,7 @@ public class ButtonManager : MonoBehaviour
     {
         //リストから何を取り出したのかを入れておく
         //乱数になるように調整
-        _cakeJudgeBaseResult = _listBox._cakeJudgeBaseArray[Random.Range(0, 7)];
+        _cakeJudgeBaseResult = _listBox._cakeJudgeBaseArray[Random.Range(0, 6)];
         Debug.Log(_cakeJudgeBaseResult);
         if (_cakeJudgeBaseResult is ShortCake sc)
         {
@@ -195,14 +196,14 @@ public class ButtonManager : MonoBehaviour
                     NowObject.GetComponentInChildren<UM>(), NowObject.GetComponentInChildren<UR>(), NowObject.GetComponentInChildren<CCake>()
                      , NowObject.GetComponentInChildren<CCream>());
         }
-        else if(_cakeJudgeBaseResult is PampkinCake pm)
+        else if (_cakeJudgeBaseResult is PampkinCake pm)
         {
             pm.PSetting(NowObject.GetComponentInChildren<DL>(), NowObject.GetComponentInChildren<DM>(), NowObject.GetComponentInChildren<DR>(),
                     NowObject.GetComponentInChildren<LS>(), NowObject.GetComponentInChildren<RS>(), NowObject.GetComponentInChildren<UL>(),
                     NowObject.GetComponentInChildren<UM>(), NowObject.GetComponentInChildren<UR>(), NowObject.GetComponentInChildren<CCake>()
                      , NowObject.GetComponentInChildren<CCream>());
         }
-        else if(_cakeJudgeBaseResult is PampkinCake2 pm2)
+        else if (_cakeJudgeBaseResult is PampkinCake2 pm2)
         {
 
             pm2.P2Setting(NowObject.GetComponentInChildren<DL>(), NowObject.GetComponentInChildren<DM>(), NowObject.GetComponentInChildren<DR>(),

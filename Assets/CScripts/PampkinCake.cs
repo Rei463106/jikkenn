@@ -15,7 +15,7 @@ public class PampkinCake : CakeJudgeBase
     {
         if (_dl.dlName == "" && _um.umName.Contains("Pumpkin") &&
             _dm.dmName == "" && _dr.drName == "" && _ls.lsName.Contains("Candle") && _rs.rsName.Contains("Candle") &&
-            _ul.ulName.Contains("Chocolate") && _ur.urName.Contains("Chocolate") && _cCake.colorsIndex % 3 == 1 && _cCream.colorsIndex % 3 == 2)
+            _ul.ulName == "" && _ur.urName == "" && _cCake.colorsIndex % 3 == 1 && _cCream.colorsIndex % 3 == 2)
             judgement = true;
         else judgement = false;
         return judgement;

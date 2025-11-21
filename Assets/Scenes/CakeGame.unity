@@ -2579,7 +2579,7 @@ MonoBehaviour:
   m_destroyPoint: {x: 15, y: 0.7}
   isButton: 0
   _scoreText: {fileID: 655609835}
-  limitTime: 100
+  limitTime: 1000
   timerText: {fileID: 1552017051}
   nowTime: 0
 --- !u!4 &1315778088

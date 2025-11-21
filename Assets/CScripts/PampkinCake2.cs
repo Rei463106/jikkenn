@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class PampkinCake2 : CakeJudgeBase
 {
     DL _dl;
@@ -17,9 +13,9 @@ public class PampkinCake2 : CakeJudgeBase
 
     public override bool JudgeObject()
     {
-        if (_dl.dlName.Contains("strawberry") && _um.umName.Contains("banana") &&
-            _dm.dmName == "" && _dr.drName == "" && _ls.lsName == "" && _rs.rsName == "" &&
-            _ul.ulName == "" && _ur.urName == "" && _cCake.colorsIndex % 3 == 1 && _cCream.colorsIndex % 3 == 2)
+        if (_dl.dlName == "" && _um.umName.Contains("Chocolate") &&
+            _dm.dmName.Contains("Pumpkin") && _dr.drName == "" && _ls.lsName.Contains("Cookie") && _rs.rsName.Contains("Cookie") &&
+            _ul.ulName.Contains("strawberry") && _ur.urName.Contains("strawberry") && _cCake.colorsIndex % 3 == 1 && _cCream.colorsIndex % 3 == 0)
             judgement = true;
         else judgement = false;
         return judgement;

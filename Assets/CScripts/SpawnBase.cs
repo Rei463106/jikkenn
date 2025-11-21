@@ -38,7 +38,7 @@ public class SpawnBase : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
         //入っていなければ…の条件で
         if (collision.CompareTag("Floor") || collision.CompareTag("Cake"))
             insideCount++;
-        Debug.Log(collision.name);
+        //Debug.Log(collision.name);
         isT = insideCount == 0;
     }
     private void OnTriggerExit2D(Collider2D collision)

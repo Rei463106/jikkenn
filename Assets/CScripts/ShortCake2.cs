@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class ShorCake2 : CakeJudgeBase
 {
     DL _dl;
@@ -17,9 +13,9 @@ public class ShorCake2 : CakeJudgeBase
 
     public override bool JudgeObject()
     {
-        if (_dl.dlName.Contains("Cookie") && _um.umName.Contains("strawberry") &&
-            _dm.dmName.Contains("Cookie") && _dr.drName.Contains("Cookie") && _ls.lsName == "" && _rs.rsName == "" &&
-            _ul.ulName.Contains("strawberry") && _ur.urName.Contains("strawberry") && _cCake.colorsIndex % 3 == 0 && _cCream.colorsIndex % 3 == 2)
+        if (_dl.dlName.Contains("Cookie") && _um.umName == "" &&
+            _dm.dmName.Contains("Cookie") && _dr.drName == "" && _ls.lsName == "" && _rs.rsName == "" &&
+            _ul.ulName == "" && _ur.urName == "" && _cCake.colorsIndex % 3 == 0 && _cCream.colorsIndex % 3 == 2)
             judgement = true;
         else judgement = false;
         return judgement;
