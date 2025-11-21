@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class PampkinCake2 : CakeJudgeBase
 {
     DL _dl;
@@ -10,7 +12,7 @@ public class PampkinCake2 : CakeJudgeBase
     UR _ur;
     CCake _cCake;
     CCream _cCream;
-
+    [SerializeField] CakeCollection _cakeCollection;
     public override bool JudgeObject()
     {
         if (string.IsNullOrEmpty(_dl.dlName) && _um.umName.Contains("Chocolate") &&
@@ -37,6 +39,6 @@ public class PampkinCake2 : CakeJudgeBase
 
     public override void States()
     {
-        base.States();
+        _cakeCollection._cakeState = CakeCollection.CakeState.Pu2;
     }
 }

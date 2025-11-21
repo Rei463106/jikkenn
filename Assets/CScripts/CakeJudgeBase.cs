@@ -18,8 +18,4 @@ public abstract class CakeJudgeBase : MonoBehaviour
  
     }
 
-    public enum CakeState
-    {
-        Sh, Sh2, Ch, ch2, Pu, Pu2,
-    }
 }

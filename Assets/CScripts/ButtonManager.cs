@@ -42,7 +42,7 @@ public class ButtonManager : MonoBehaviour
     /// 点数加算用
     /// </summary>
     [SerializeField] Text _scoreText;
-    int score = 0;
+    static int score = 0;
 
     /// <summary>
     /// 時間管理用

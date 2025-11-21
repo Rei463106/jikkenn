@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class ChocoCake2 : CakeJudgeBase
 {
 
@@ -11,6 +13,8 @@ public class ChocoCake2 : CakeJudgeBase
     UR _ur;
     CCake _cCake;
     CCream _cCream;
+
+    [SerializeField] CakeCollection _cakeCollection;
 
     public override bool JudgeObject()
     {
@@ -38,6 +42,6 @@ public class ChocoCake2 : CakeJudgeBase
 
     public override void States()
     {
-        base.States();
+        _cakeCollection._cakeState = CakeCollection.CakeState.Ch2;
     }
 }
