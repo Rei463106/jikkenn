@@ -14,8 +14,8 @@ public class ChocoCake2 : CakeJudgeBase
 
     public override bool JudgeObject()
     {
-        if (_dl.dlName == "" && _um.umName.Contains("Hoip") &&
-            _dm.dmName == "" && _dr.drName == "" && _ls.lsName.Contains("banana") && _rs.rsName.Contains("banana") &&
+        if (string.IsNullOrEmpty(_dl.dlName) && _um.umName.Contains("Hoip") &&
+            string.IsNullOrEmpty(_dm.dmName) && string.IsNullOrEmpty(_dr.drName) && _ls.lsName.Contains("banana") && _rs.rsName.Contains("banana") &&
             _ul.ulName.Contains("Hoip") && _ur.urName.Contains("Hoip") && _cCake.colorsIndex % 3 == 2 && _cCream.colorsIndex % 3 == 2)
             judgement = true;
         else judgement = false;
@@ -34,5 +34,10 @@ public class ChocoCake2 : CakeJudgeBase
         _ur = ur;
         _cCake = cCake;
         _cCream = cCream;
+    }
+
+    public override void States()
+    {
+        base.States();
     }
 }

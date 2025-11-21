@@ -168,6 +168,7 @@ public class ButtonManager : MonoBehaviour
         //リストから何を取り出したのかを入れておく
         //乱数になるように調整
         _cakeJudgeBaseResult = _listBox._cakeJudgeBaseArray[Random.Range(0, 6)];
+        _cakeJudgeBaseResult.States();
         Debug.Log(_cakeJudgeBaseResult);
         if (_cakeJudgeBaseResult is ShortCake sc)
         {
@@ -213,9 +214,5 @@ public class ButtonManager : MonoBehaviour
                      , NowObject.GetComponentInChildren<CCream>());
         }
     }
-
-    void ImageEnabledForse(Image image)
-    {
-        image.enabled = false;
-    }
+   
 }

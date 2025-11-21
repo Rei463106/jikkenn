@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class DM : MonoBehaviour
 {
-    public string dmName;
-
+    public string dmName => 0 < dmList.Count ? dmList[0].name : string.Empty;
+    List<GameObject> dmList = new List<GameObject>();
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Sweets")
         {
-            dmName = collision.gameObject.name;
+            dmList.Add(collision.gameObject);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        dmName = "";
+        if (dmList.Contains(collision.gameObject))
+        {
+            dmList.Remove(collision.gameObject);
+        }
     }
 }

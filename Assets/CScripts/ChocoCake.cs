@@ -15,8 +15,8 @@ public class ChocoCake : CakeJudgeBase
     {
         //これだと不十分なので、他の名前が空になっているのを確認する。
         if (_dl.dlName.Contains("banana") && _um.umName.Contains("Chocolate") &&
-            _dm.dmName == "" && _dr.drName.Contains("banana") && _ls.lsName == "" && _rs.rsName == "" &&
-            _ul.ulName == "" && _ur.urName.Contains("Hoip") && _cCake.colorsIndex % 3 == 0 && _cCream.colorsIndex % 3 == 1) judgement = true;
+             string.IsNullOrEmpty(_dm.dmName) && _dr.drName.Contains("banana") && string.IsNullOrEmpty(_ls.lsName) && string.IsNullOrEmpty(_rs.rsName) &&
+            string.IsNullOrEmpty(_ul.ulName) && _ur.urName.Contains("Hoip") && _cCake.colorsIndex % 3 == 0 && _cCream.colorsIndex % 3 == 1) judgement = true;
         else judgement = false;
         return judgement;
     }
@@ -33,5 +33,9 @@ public class ChocoCake : CakeJudgeBase
         _ur = ur;
         _cCake = cCake;
         _cCream = cCream;
+    }
+    public override void States()
+    {
+        base.States();
     }
 }

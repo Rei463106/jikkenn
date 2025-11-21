@@ -13,9 +13,9 @@ public class PampkinCake : CakeJudgeBase
 
     public override bool JudgeObject()
     {
-        if (_dl.dlName == "" && _um.umName.Contains("Pumpkin") &&
-            _dm.dmName == "" && _dr.drName == "" && _ls.lsName.Contains("Candle") && _rs.rsName.Contains("Candle") &&
-            _ul.ulName == "" && _ur.urName == "" && _cCake.colorsIndex % 3 == 1 && _cCream.colorsIndex % 3 == 2)
+        if (string.IsNullOrEmpty(_dl.dlName) && _um.umName.Contains("Pumpkin") &&
+            string.IsNullOrEmpty(_dm.dmName) && string.IsNullOrEmpty(_dr.drName) && _ls.lsName.Contains("Candle") && _rs.rsName.Contains("Candle") &&
+            string.IsNullOrEmpty(_ul.ulName) && string.IsNullOrEmpty(_ur.urName) && _cCake.colorsIndex % 3 == 1 && _cCream.colorsIndex % 3 == 2)
             judgement = true;
         else judgement = false;
         return judgement;
@@ -33,5 +33,10 @@ public class PampkinCake : CakeJudgeBase
         _ur = ur;
         _cCake = cCake;
         _cCream = cCream;
+    }
+
+    public override void States()
+    {
+        base.States();
     }
 }

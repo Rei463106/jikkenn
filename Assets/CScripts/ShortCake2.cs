@@ -13,9 +13,9 @@ public class ShorCake2 : CakeJudgeBase
 
     public override bool JudgeObject()
     {
-        if (_dl.dlName.Contains("Cookie") && _um.umName == "" &&
-            _dm.dmName.Contains("Cookie") && _dr.drName == "" && _ls.lsName == "" && _rs.rsName == "" &&
-            _ul.ulName == "" && _ur.urName == "" && _cCake.colorsIndex % 3 == 0 && _cCream.colorsIndex % 3 == 2)
+        if (_dl.dlName.Contains("Cookie") && string.IsNullOrEmpty(_um.umName) &&
+            _dm.dmName.Contains("Cookie") && string.IsNullOrEmpty(_dr.drName) && string.IsNullOrEmpty(_ls.lsName) && string.IsNullOrEmpty(_rs.rsName) &&
+            string.IsNullOrEmpty(_ul.ulName) && string.IsNullOrEmpty(_ur.urName) && _cCake.colorsIndex % 3 == 0 && _cCream.colorsIndex % 3 == 2)
             judgement = true;
         else judgement = false;
         return judgement;
@@ -33,5 +33,9 @@ public class ShorCake2 : CakeJudgeBase
         _ur = ur;
         _cCake = cCake;
         _cCream = cCream;
+    }
+    public override void States()
+    {
+        base.States();
     }
 }
