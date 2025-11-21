@@ -1,5 +1,6 @@
 ﻿using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 /// <summary>
@@ -61,7 +62,8 @@ public class ButtonManager : MonoBehaviour
     ShortCake _shortCake;
     ResultAnim _resultAnim;
 
-
+    [SerializeField] UnityEvent _resultCorrectEvent;
+    [SerializeField] UnityEvent _resultIncorrectEvent;
     void Start()
     {
         //代入
@@ -136,13 +138,12 @@ public class ButtonManager : MonoBehaviour
         //このアニメーションの終わりにケーキが動くようにObjectMoveを呼び出す。
         if (correct)
         {
-
+            _resultCorrectEvent.Invoke();
         }
         else
         {
-
+            _resultIncorrectEvent.Invoke();
         }
-        _cakeJudgeBaseResult.judgement = false;
         foreach (var item in NowObject.GetComponentInChildren<NCColider>().list)
         {
             if (item != null)
@@ -211,5 +212,10 @@ public class ButtonManager : MonoBehaviour
                     NowObject.GetComponentInChildren<UM>(), NowObject.GetComponentInChildren<UR>(), NowObject.GetComponentInChildren<CCake>()
                      , NowObject.GetComponentInChildren<CCream>());
         }
+    }
+
+    void ImageEnabledForse(Image image)
+    {
+        image.enabled = false;
     }
 }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5459994335338269909}
   - component: {fileID: 2463248358264413419}
   - component: {fileID: 5601172462440086880}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: upMiddle
   m_TagString: Cake
   m_Icon: {fileID: 0}
@@ -156,7 +156,7 @@ GameObject:
   - component: {fileID: 394283221608679843}
   - component: {fileID: 6731619804967369314}
   - component: {fileID: 4743553881212349755}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: downRight
   m_TagString: Cake
   m_Icon: {fileID: 0}
@@ -299,7 +299,7 @@ GameObject:
   - component: {fileID: 1074982002181421751}
   - component: {fileID: 979978215692071482}
   - component: {fileID: -7697783781344044666}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: CakePrefab
   m_TagString: Cake
   m_Icon: {fileID: 0}
@@ -413,7 +413,7 @@ GameObject:
   - component: {fileID: 3369147876686889029}
   - component: {fileID: 5079357533642507545}
   - component: {fileID: 6051254505491117238}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: rightSide
   m_TagString: Cake
   m_Icon: {fileID: 0}
@@ -557,7 +557,7 @@ GameObject:
   - component: {fileID: 1375451883722545195}
   - component: {fileID: 6644062469390877259}
   - component: {fileID: 4000354106628760443}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: leftSide
   m_TagString: Cake
   m_Icon: {fileID: 0}
@@ -785,7 +785,7 @@ GameObject:
   - component: {fileID: 2713169877923200362}
   - component: {fileID: 100642269949200412}
   - component: {fileID: 6259732791418174727}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: 'downLeft '
   m_TagString: Cake
   m_Icon: {fileID: 0}
@@ -929,7 +929,7 @@ GameObject:
   - component: {fileID: 3631324626079027849}
   - component: {fileID: 5071623178996703853}
   - component: {fileID: 7773235974002800848}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: upRight
   m_TagString: Cake
   m_Icon: {fileID: 0}
@@ -1073,7 +1073,7 @@ GameObject:
   - component: {fileID: 2871575804995130574}
   - component: {fileID: 8047096660299487412}
   - component: {fileID: 2339277699633873228}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: upLeft
   m_TagString: Cake
   m_Icon: {fileID: 0}
@@ -1217,7 +1217,7 @@ GameObject:
   - component: {fileID: 6276294655610749705}
   - component: {fileID: 1853867195026578372}
   - component: {fileID: 1931552061550858159}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: downMiddle
   m_TagString: Cake
   m_Icon: {fileID: 0}
@@ -1361,7 +1361,7 @@ GameObject:
   - component: {fileID: 2246933796843897391}
   - component: {fileID: 342285561412508756}
   - component: {fileID: 1885896624751319606}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AllRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1378,7 +1378,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.038097173, y: 0.5518406, z: -0.01447916}
-  m_LocalScale: {x: 0.2777778, y: 0.4, z: 1}
+  m_LocalScale: {x: 0.2777778, y: 0.4, z: 0.01}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1074982002181421751}
@@ -1482,7 +1482,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 671073666155734836, guid: c23f05fe8b0c5174a82348ebfed805bf, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 671073666155734836, guid: c23f05fe8b0c5174a82348ebfed805bf, type: 3}
       propertyPath: m_TagString

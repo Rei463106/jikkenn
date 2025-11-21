@@ -11,12 +11,10 @@ public class DM : MonoBehaviour
         if (collision.gameObject.tag == "Sweets")
         {
             dmName = collision.gameObject.name;
-           
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         dmName = "";
-        
     }
 }
