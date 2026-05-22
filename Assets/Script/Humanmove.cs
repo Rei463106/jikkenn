@@ -17,6 +17,12 @@ public class player_move : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // 何かキーが押された場合
+        if (Input.anyKeyDown)
+        {
+            string keyStr = Input.inputString; // 入力されたキーの名前を取得
+            Debug.Log(keyStr + " のボタンが押されたよ！！"); // コンソールに表示
+        }
 
     }
 
