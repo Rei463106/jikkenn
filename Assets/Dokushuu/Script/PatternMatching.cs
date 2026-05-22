@@ -5,6 +5,8 @@ public class PatternMatching : MonoBehaviour
 {
     private object i = 456;
     private Name _name = new Name() { FirstName = "山田", LastName = "太郎" };//オブジェクト初期化子を使ってる
+    private int _point = 45;
+    private string _wine = "ワイン";
 
     private void Start()
     {
@@ -14,6 +16,20 @@ public class PatternMatching : MonoBehaviour
             _ => "何もないです"
         }
         );
+
+        Debug.Log(_point switch
+        {
+            > 80 => "Exellent!",
+            > 40 => "Great!!",
+            > 20 => "Good",
+            _ => "bad"
+        });//論理演算
+
+        Debug.Log(_wine switch
+        {
+            "ワイン" or "酒" => "Alchole",
+            _ => $" "
+        });//or、and、notも使える(&&、||は使えない)
     }
 
     private void Update()
@@ -31,6 +47,11 @@ public class PatternMatching : MonoBehaviour
             var r => $"{r}です"
         }
         );
+    }
+
+    private void Alchole()
+    {
+
     }
 }
 
