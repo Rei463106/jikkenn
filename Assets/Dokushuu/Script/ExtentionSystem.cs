@@ -23,6 +23,7 @@ internal static class StringExtentions
 {
     //staticを入れる
     //this 拡張したいクラス　…の二点を入れる
+    //thisで指定するクラス.メソッドという形で呼び出すこともできる
     public static string Repeat(this string str, int count)
     {
         var builder = new StringBuilder();
