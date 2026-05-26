@@ -13,6 +13,9 @@ public class GenericTest : MonoBehaviour
         //例2
         var mg = new MyGenerics<string>();//stringはIComparableを実装しているので使える
         Debug.Log(mg.Hoge("A", "G"));
+
+        //例3
+        var c = CreateInstance.Create<int>();//型推論ができないので<>で指定する
     }
 }
 
@@ -37,4 +40,11 @@ internal class MyGenerics<T> where T : IComparable<T>
 internal class MyGenerics2<T1, T2> where T1 : T2 { }//T1がT2と同じ型、またはT1がT2を継承している時　という制約
 internal class VoidClass<T> where T : new() { }//コンストラクターの引数がないものしかインスタンス化できない
 
+internal static class CreateInstance
+{
+    public static T Create<T>() where T : new()//ジェネリックメソッド、戻り値を指定すること
+    {
+        return new T();
+    }
+}
 
